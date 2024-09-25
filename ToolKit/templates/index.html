@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结构工具箱</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">结构工具箱</div>
+            <ul>
+                <li><a href="#about">关于</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>欢迎使用结构工具箱</h1>
+            <p>为结构工程师提供高效、精确的结构计算工具</p>
+        </section>
+
+        <section class="tool-grid">
+            <div class="tool-card">
+                <div class="tool-card-content">
+                    <h3>平板冲切</h3>
+                    <a href="{{ url_for('plate_cutting_page') }}" class="button">开始计算</a>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-card-content">
+                    <h3>牛腿计算</h3>
+                    <a href="{{ url_for('knee_calculation_page') }}" class="button">开始计算</a>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div class="tool-card-content">
+                    <h3>预埋件计算</h3>
+                    <a href="{{ url_for('embedded_part_page') }}" class="button">开始计算</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 结构工具箱. 保留所有权利。</p>
+            <div class="contact-info">
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:your.email@gmail.com"><i class="far fa-envelope"></i></a>
+                <span><i class="fab fa-weixin"></i> your_wechat_id</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

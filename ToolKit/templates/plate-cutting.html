@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}平板冲切 - 结构工具箱{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/plate-cutting.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div id="content">
+    <h1>平板冲切计算</h1>
+    <form id="plate-cutting-form">
+        <div class="form-group">
+            <label for="thickness">板厚 t (mm):</label>
+            <input type="number" id="thickness" name="thickness" required step="0.1" min="0">
+        </div>
+        <div class="form-group">
+            <label for="hole_diameter">孔径 d (mm):</label>
+            <input type="number" id="hole_diameter" name="hole_diameter" required step="0.1" min="0">
+        </div>
+        <div class="form-group">
+            <label for="material_strength">材料强度 fu (MPa):</label>
+            <input type="number" id="material_strength" name="material_strength" required step="1" min="0">
+        </div>
+        <div class="form-group">
+            <label for="safety_factor">安全系数 γ:</label>
+            <input type="number" id="safety_factor" name="safety_factor" required step="0.01" min="1" value="1.25">
+        </div>
+        <button type="submit">计算</button>
+    </form>
+    <div id="result" class="result-container" style="display: none;">
+        <h2>计算结果</h2>
+        <div class="result-grid">
+            <div class="result-item">
+                <span class="result-label">冲切力:</span>
+                <span class="result-value" id="cutting-force"></span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">最小边距:</span>
+                <span class="result-value" id="min-edge-distance"></span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">最小间距:</span>
+                <span class="result-value" id="min-spacing"></span>
+            </div>
+        </div>
+    </div>
+    <div id="conclusion" style="display: none;">
+        <h2>结论</h2>
+        <pre id="conclusion-text"></pre>
+    </div>
+    <button id="export-pdf" class="export-pdf" data-content-id="#content" data-filename="plate-cutting-result.pdf" style="display: none;">
+        导出为PDF
+    </button>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='js/plate-cutting.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/export-pdf.js') }}"></script>
+{% endblock %}

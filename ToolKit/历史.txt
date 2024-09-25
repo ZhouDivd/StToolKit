@@ -1,0 +1,33 @@
+网页版的结构工具箱。以下是详细的设计方案:
+
+整体架构
+
+
+前端:HTML5, CSS3, JavaScript (Vue.js)
+后端:Node.js + Express.js (作为简单的服务器和API)
+
+
+
+页面结构
+
+a) 首页 (index.html)
+
+顶部导航栏:包含logo和"关于"等链接
+主体部分:功能按钮网格布局
+
+平板冲切按钮
+牛腿计算按钮
+预埋件计算按钮
+
+
+页脚:版权信息等
+
+b) 功能页面 (例如:plate-cutting.html, knee-calculation.html, embedded-part.html)
+
+与首页相同的导航栏和页脚
+主体部分:
+
+Excel样式的表格用于输入参数
+"计算"按钮
+结果显示区域
+"导出PDF"按钮
